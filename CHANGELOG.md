@@ -1,4 +1,4 @@
-## Unreleased
+## 1.0.0
 
 * **Android:** fixed manifest-merge failure in consumer apps on AGP 8.x+
   (`Namespace 'org.tensorflow.lite' is used in multiple modules and/or
