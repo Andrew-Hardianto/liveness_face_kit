@@ -1,11 +1,11 @@
 import 'package:flutter/services.dart';
-import 'package:flutter_face_recognition/flutter_face_recognition.dart';
+import 'package:liveness_face_kit/liveness_face_kit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  const channel = MethodChannel('flutter_face_recognition');
+  const channel = MethodChannel('liveness_face_kit');
   final plugin = const FaceRecognition();
 
   tearDown(() {
@@ -54,63 +54,67 @@ void main() {
   });
 
   group('MethodChannel communication', () {
-    test('extractFaceFeature sends Uint8List bytes and parses 192-D embedding',
-        () async {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
-        expect(methodCall.method, 'extractFaceFeature');
-        final args = methodCall.arguments as Map<Object?, Object?>;
-        expect(args['bytes'], isA<Uint8List>());
-        return <String, dynamic>{
-          'embedding': List<double>.filled(192, 0.1),
-        };
-      });
+    test(
+      'extractFaceFeature sends Uint8List bytes and parses 192-D embedding',
+      () async {
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+            .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+              expect(methodCall.method, 'extractFaceFeature');
+              final args = methodCall.arguments as Map<Object?, Object?>;
+              expect(args['bytes'], isA<Uint8List>());
+              return <String, dynamic>{
+                'embedding': List<double>.filled(192, 0.1),
+              };
+            });
 
-      final dummyBytes = Uint8List.fromList(<int>[1, 2, 3, 4]);
-      final embedding = await plugin.extractFaceFeature(bytes: dummyBytes);
-      expect(embedding.length, 192);
-      expect(embedding.first, closeTo(0.1, 1e-9));
-    });
+        final dummyBytes = Uint8List.fromList(<int>[1, 2, 3, 4]);
+        final embedding = await plugin.extractFaceFeature(bytes: dummyBytes);
+        expect(embedding.length, 192);
+        expect(embedding.first, closeTo(0.1, 1e-9));
+      },
+    );
 
-    test('checkLiveness parses score, isLive, and LivenessConfidence',
-        () async {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
-        expect(methodCall.method, 'checkLiveness');
-        return <String, dynamic>{
-          'isLive': true,
-          'score': 0.92,
-          'confidence': 'HIGH',
-        };
-      });
+    test(
+      'checkLiveness parses score, isLive, and LivenessConfidence',
+      () async {
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+            .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+              expect(methodCall.method, 'checkLiveness');
+              return <String, dynamic>{
+                'isLive': true,
+                'score': 0.92,
+                'confidence': 'HIGH',
+              };
+            });
 
-      final dummyBytes = Uint8List.fromList(<int>[10, 20, 30]);
-      final liveness = await plugin.checkLiveness(bytes: dummyBytes);
-      expect(liveness.isLive, isTrue);
-      expect(liveness.score, closeTo(0.92, 1e-9));
-      expect(liveness.confidence, LivenessConfidence.high);
-    });
+        final dummyBytes = Uint8List.fromList(<int>[10, 20, 30]);
+        final liveness = await plugin.checkLiveness(bytes: dummyBytes);
+        expect(liveness.isLive, isTrue);
+        expect(liveness.score, closeTo(0.92, 1e-9));
+        expect(liveness.confidence, LivenessConfidence.high);
+      },
+    );
 
     test('detectFaces parses faces and eye open probabilities', () async {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
-        expect(methodCall.method, 'detectFaces');
-        return <String, dynamic>{
-          'count': 1,
-          'faces': <Map<String, dynamic>>[
-            <String, dynamic>{
-              'x': 24,
-              'y': 48,
-              'width': 200,
-              'height': 220,
-              'headEulerAngleY': -3.5,
-              'headEulerAngleZ': 1.2,
-              'leftEyeOpenProbability': 0.95,
-              'rightEyeOpenProbability': 0.91,
-            },
-          ],
-        };
-      });
+            expect(methodCall.method, 'detectFaces');
+            return <String, dynamic>{
+              'count': 1,
+              'faces': <Map<String, dynamic>>[
+                <String, dynamic>{
+                  'x': 24,
+                  'y': 48,
+                  'width': 200,
+                  'height': 220,
+                  'headEulerAngleY': -3.5,
+                  'headEulerAngleZ': 1.2,
+                  'leftEyeOpenProbability': 0.95,
+                  'rightEyeOpenProbability': 0.91,
+                },
+              ],
+            };
+          });
 
       final result = await plugin.detectFaces(base64: 'aGVsbG8=');
       expect(result.hasSingleFace, isTrue);
@@ -120,4 +124,3 @@ void main() {
     });
   });
 }
-

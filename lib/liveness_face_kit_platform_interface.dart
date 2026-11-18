@@ -1,10 +1,10 @@
 import 'dart:typed_data';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-import 'flutter_face_recognition_method_channel.dart';
+import 'liveness_face_kit_method_channel.dart';
 import 'src/models.dart';
 
-/// The interface that implementations of `flutter_face_recognition` must implement.
+/// The interface that implementations of `liveness_face_kit` must implement.
 abstract class FlutterFaceRecognitionPlatform extends PlatformInterface {
   /// Constructs a [FlutterFaceRecognitionPlatform].
   FlutterFaceRecognitionPlatform() : super(token: _token);
@@ -26,10 +26,7 @@ abstract class FlutterFaceRecognitionPlatform extends PlatformInterface {
   }
 
   /// Extracts a 192-dimensional L2-normalized face embedding from an image.
-  Future<List<double>> extractFaceFeature({
-    Uint8List? bytes,
-    String? base64,
-  }) {
+  Future<List<double>> extractFaceFeature({Uint8List? bytes, String? base64}) {
     throw UnimplementedError('extractFaceFeature() has not been implemented.');
   }
 
@@ -43,10 +40,7 @@ abstract class FlutterFaceRecognitionPlatform extends PlatformInterface {
   }
 
   /// Detects all faces, bounding boxes, head Euler angles, and eye open probabilities.
-  Future<FaceDetectionResult> detectFaces({
-    Uint8List? bytes,
-    String? base64,
-  }) {
+  Future<FaceDetectionResult> detectFaces({Uint8List? bytes, String? base64}) {
     throw UnimplementedError('detectFaces() has not been implemented.');
   }
 
@@ -55,4 +49,3 @@ abstract class FlutterFaceRecognitionPlatform extends PlatformInterface {
     throw UnimplementedError('dispose() has not been implemented.');
   }
 }
-

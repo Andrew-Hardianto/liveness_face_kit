@@ -1,5 +1,5 @@
-name: flutter_face_recognition_example
-description: "Demonstrates how to use the flutter_face_recognition plugin for enrollment, liveness anti-spoofing, and cosine similarity verification."
+name: liveness_face_kit_example
+description: "Demonstrates how to use the liveness_face_kit plugin for enrollment, liveness anti-spoofing, and cosine similarity verification."
 publish_to: 'none'
 
 environment:
@@ -8,7 +8,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_face_recognition:
+  liveness_face_kit:
     path: ../
   image_picker: ^1.1.2
 

@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
-  s.name             = 'flutter_face_recognition'
+  s.name             = 'liveness_face_kit'
   s.version          = '1.0.0'
   s.summary          = 'Offline Face Recognition, Cosine Similarity & Multi-Scale Anti-Spoofing plugin for Flutter.'
   s.description      = <<-DESC
 High-performance offline Face Recognition (MobileFaceNet 192-dim), Cosine Similarity matching,
 and Multi-Scale Passive Liveness Detection (MiniFASNet) for Flutter using TFLite and Apple Vision.
                        DESC
-  s.homepage         = 'https://github.com/Andrew-Hardianto/flutter_face_recognition'
+  s.homepage         = 'https://github.com/Andrew-Hardianto/liveness_face_kit'
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Andrew Hardianto' => 'andrew@example.com' }
   s.source           = { :path => '.' }
@@ -24,7 +24,7 @@ and Multi-Scale Passive Liveness Detection (MiniFASNet) for Flutter using TFLite
   }
   s.swift_version = '5.9'
   s.resource_bundles = {
-    'flutter_face_recognition_privacy' => ['Classes/PrivacyInfo.xcprivacy']
+    'liveness_face_kit_privacy' => ['Classes/PrivacyInfo.xcprivacy']
   }
 end
 

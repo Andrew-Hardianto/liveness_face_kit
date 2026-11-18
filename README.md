@@ -1,6 +1,6 @@
-# flutter_face_recognition
+# liveness_face_kit
 
-[![pub package](https://img.shields.io/pub/v/flutter_face_recognition.svg)](https://pub.dev/packages/flutter_face_recognition)
+[![pub package](https://img.shields.io/pub/v/liveness_face_kit.svg)](https://pub.dev/packages/liveness_face_kit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 High-performance, **100% offline** Face Detection, **192-D Face Embedding Recognition** (`MobileFaceNet`), **Cosine Similarity** matching, and **Multi-Scale Passive Liveness / Anti-Spoofing** (`MiniFASNet`) plugin for Flutter.
@@ -33,18 +33,18 @@ High-performance, **100% offline** Face Detection, **192-D Face Embedding Recogn
 
 ### 1. Installation
 
-Add `flutter_face_recognition` to your `pubspec.yaml`:
+Add `liveness_face_kit` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_face_recognition: ^1.0.0
+  liveness_face_kit: ^1.0.0
 ```
 
 ### 2. Enroll & Verify a Face
 
 ```dart
 import 'dart:typed_data';
-import 'package:flutter_face_recognition/flutter_face_recognition.dart';
+import 'package:liveness_face_kit/liveness_face_kit.dart';
 
 final faceRecognition = const FaceRecognition();
 

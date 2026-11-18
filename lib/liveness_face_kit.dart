@@ -1,10 +1,10 @@
 import 'dart:math' as math;
 import 'dart:typed_data';
 
-import 'flutter_face_recognition_platform_interface.dart';
+import 'liveness_face_kit_platform_interface.dart';
 import 'src/models.dart';
 
-export 'flutter_face_recognition_platform_interface.dart';
+export 'liveness_face_kit_platform_interface.dart';
 export 'src/models.dart';
 
 /// High-performance offline Face Recognition, Cosine Similarity matching,
@@ -18,10 +18,7 @@ class FaceRecognition {
   ///
   /// Provide either [bytes] (`Uint8List` of a JPEG/PNG image, recommended for
   /// zero-copy memory efficiency) or [base64] (for backward compatibility).
-  Future<List<double>> extractFaceFeature({
-    Uint8List? bytes,
-    String? base64,
-  }) {
+  Future<List<double>> extractFaceFeature({Uint8List? bytes, String? base64}) {
     return FlutterFaceRecognitionPlatform.instance.extractFaceFeature(
       bytes: bytes,
       base64: base64,
@@ -47,10 +44,7 @@ class FaceRecognition {
 
   /// Detects all faces in the image along with bounding boxes, head rotation
   /// Euler angles, and left/right eye open probabilities (`0.0` to `1.0`).
-  Future<FaceDetectionResult> detectFaces({
-    Uint8List? bytes,
-    String? base64,
-  }) {
+  Future<FaceDetectionResult> detectFaces({Uint8List? bytes, String? base64}) {
     return FlutterFaceRecognitionPlatform.instance.detectFaces(
       bytes: bytes,
       base64: base64,
@@ -108,8 +102,10 @@ class FaceRecognition {
     final cosineSimilarity =
         (dotProduct / (math.sqrt(norm1) * math.sqrt(norm2))).clamp(-1.0, 1.0);
     final isMatch = cosineSimilarity > threshold;
-    final similarityPercentage =
-        math.max(0.0, math.min(100.0, cosineSimilarity * 100.0));
+    final similarityPercentage = math.max(
+      0.0,
+      math.min(100.0, cosineSimilarity * 100.0),
+    );
 
     return MatchResult(
       isMatch: isMatch,
@@ -137,4 +133,3 @@ class FaceRecognition {
     return FlutterFaceRecognitionPlatform.instance.dispose();
   }
 }
-

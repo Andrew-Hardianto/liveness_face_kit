@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import 'flutter_face_recognition_platform_interface.dart';
+import 'liveness_face_kit_platform_interface.dart';
 import 'src/models.dart';
 
 /// An implementation of [FlutterFaceRecognitionPlatform] that uses method channels.
@@ -9,7 +9,7 @@ class MethodChannelFlutterFaceRecognition
     extends FlutterFaceRecognitionPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('flutter_face_recognition');
+  final methodChannel = const MethodChannel('liveness_face_kit');
 
   Map<String, dynamic> _buildImageArgs({
     Uint8List? bytes,
@@ -105,4 +105,3 @@ class MethodChannelFlutterFaceRecognition
     await methodChannel.invokeMethod<void>('dispose');
   }
 }
-

@@ -10,7 +10,7 @@ public class FlutterFaceRecognitionPlugin: NSObject, FlutterPlugin {
     // ============================
     // Configuration — Face Recognition (MobileFaceNet)
     // ============================
-    private let packageName = "flutter_face_recognition"
+    private let packageName = "liveness_face_kit"
     private let modelName = "mobile_face_net"
     private let inputSize = 112
     private let embeddingSize = 192
@@ -35,7 +35,7 @@ public class FlutterFaceRecognitionPlugin: NSObject, FlutterPlugin {
 
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(
-            name: "flutter_face_recognition",
+            name: "liveness_face_kit",
             binaryMessenger: registrar.messenger()
         )
         let instance = FlutterFaceRecognitionPlugin(registrar: registrar)
