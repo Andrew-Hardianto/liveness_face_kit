@@ -26,10 +26,7 @@ abstract class FlutterFaceRecognitionPlatform extends PlatformInterface {
   }
 
   /// Extracts a 192-dimensional L2-normalized face embedding from an image.
-  Future<List<double>> extractFaceFeature({
-    Uint8List? bytes,
-    String? base64,
-  }) {
+  Future<List<double>> extractFaceFeature({Uint8List? bytes, String? base64}) {
     throw UnimplementedError('extractFaceFeature() has not been implemented.');
   }
 
@@ -43,10 +40,7 @@ abstract class FlutterFaceRecognitionPlatform extends PlatformInterface {
   }
 
   /// Detects all faces, bounding boxes, head Euler angles, and eye open probabilities.
-  Future<FaceDetectionResult> detectFaces({
-    Uint8List? bytes,
-    String? base64,
-  }) {
+  Future<FaceDetectionResult> detectFaces({Uint8List? bytes, String? base64}) {
     throw UnimplementedError('detectFaces() has not been implemented.');
   }
 
@@ -55,4 +49,3 @@ abstract class FlutterFaceRecognitionPlatform extends PlatformInterface {
     throw UnimplementedError('dispose() has not been implemented.');
   }
 }
-

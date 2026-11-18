@@ -10,3 +10,4 @@ example/build/
 example/ios/Pods/
 example/android/.gradle/
 
+doc/

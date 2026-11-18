@@ -90,10 +90,10 @@ class DetectedFace {
       height: (map['height'] as num?)?.toInt() ?? 0,
       headEulerAngleY: (map['headEulerAngleY'] as num?)?.toDouble() ?? 0.0,
       headEulerAngleZ: (map['headEulerAngleZ'] as num?)?.toDouble() ?? 0.0,
-      leftEyeOpenProbability:
-          (map['leftEyeOpenProbability'] as num?)?.toDouble(),
-      rightEyeOpenProbability:
-          (map['rightEyeOpenProbability'] as num?)?.toDouble(),
+      leftEyeOpenProbability: (map['leftEyeOpenProbability'] as num?)
+          ?.toDouble(),
+      rightEyeOpenProbability: (map['rightEyeOpenProbability'] as num?)
+          ?.toDouble(),
     );
   }
 
@@ -129,10 +129,7 @@ class FaceDetectionResult {
   final List<DetectedFace> faces;
 
   /// Creates a [FaceDetectionResult].
-  const FaceDetectionResult({
-    required this.count,
-    required this.faces,
-  });
+  const FaceDetectionResult({required this.count, required this.faces});
 
   /// Returns `true` if exactly one face is detected.
   bool get hasSingleFace => count == 1 && faces.length == 1;
@@ -240,4 +237,3 @@ class MatchResult {
       'MatchResult(isMatch: $isMatch, score: ${score.toStringAsFixed(4)}, '
       'similarityPercentage: ${similarityPercentage.toStringAsFixed(2)}%)';
 }
-

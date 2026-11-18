@@ -105,4 +105,3 @@ class MethodChannelFlutterFaceRecognition
     await methodChannel.invokeMethod<void>('dispose');
   }
 }
-

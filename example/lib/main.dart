@@ -140,7 +140,8 @@ class _FaceRecognitionHomePageState extends State<FaceRecognitionHomePage> {
 
     setState(() {
       _isProcessing = true;
-      _statusMessage = 'Memeriksa Multi-Scale Passive Liveness (1.0x & 2.7x)...';
+      _statusMessage =
+          'Memeriksa Multi-Scale Passive Liveness (1.0x & 2.7x)...';
     });
 
     try {
@@ -207,7 +208,9 @@ class _FaceRecognitionHomePageState extends State<FaceRecognitionHomePage> {
         } else {
           final blinkStatus = firstFace.isBlinking()
               ? 'MATA BERKEDIP / TERTUTUP'
-              : (firstFace.isBothEyesOpen() ? 'MATA TERBUKA' : 'SEBAGIAN TERTUTUP');
+              : (firstFace.isBothEyesOpen()
+                  ? 'MATA TERBUKA'
+                  : 'SEBAGIAN TERTUTUP');
           _statusMessage =
               'Terdeteksi ${detection.count} wajah | Status mata: $blinkStatus';
         }
@@ -410,7 +413,8 @@ class _FaceRecognitionHomePageState extends State<FaceRecognitionHomePage> {
             const SizedBox(height: 4),
             LinearProgressIndicator(value: leftProb.clamp(0.0, 1.0)),
             const SizedBox(height: 12),
-            Text('Mata Kanan Terbuka: ${(rightProb * 100).toStringAsFixed(0)}%'),
+            Text(
+                'Mata Kanan Terbuka: ${(rightProb * 100).toStringAsFixed(0)}%'),
             const SizedBox(height: 4),
             LinearProgressIndicator(value: rightProb.clamp(0.0, 1.0)),
             const Spacer(),
@@ -425,4 +429,3 @@ class _FaceRecognitionHomePageState extends State<FaceRecognitionHomePage> {
     );
   }
 }
-
