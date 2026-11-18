@@ -1,4 +1,4 @@
-## 1.0.0 — `liveness-v3`
+## 2.0.0 — `liveness-v3`
 
 Major upgrade to the enterprise, defense-in-depth liveness pipeline. **Breaking:**
 the liveness score semantics changed (now `argmax`-based ensemble); `score` is
