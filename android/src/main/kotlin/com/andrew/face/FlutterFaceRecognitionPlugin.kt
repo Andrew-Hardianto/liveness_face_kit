@@ -41,8 +41,8 @@ import kotlin.math.sqrt
 class FlutterFaceRecognitionPlugin : FlutterPlugin, MethodCallHandler {
 
     companion object {
-        private const val CHANNEL_NAME = "flutter_face_recognition"
-        private const val PACKAGE_NAME = "flutter_face_recognition"
+        private const val CHANNEL_NAME = "liveness_face_kit"
+        private const val PACKAGE_NAME = "liveness_face_kit"
 
         // MobileFaceNet configuration
         private const val MODEL_FILE = "mobile_face_net.tflite"

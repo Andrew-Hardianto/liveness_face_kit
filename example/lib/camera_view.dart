@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_face_recognition/flutter_face_recognition.dart';
+import 'package:liveness_face_kit/liveness_face_kit.dart';
 
 /// Displays the selected/captured image along with face detection bounding box
 /// and eye open probability indicators.

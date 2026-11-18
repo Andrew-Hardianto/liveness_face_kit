@@ -1,11 +1,11 @@
 import 'package:flutter/services.dart';
-import 'package:flutter_face_recognition/flutter_face_recognition.dart';
+import 'package:liveness_face_kit/liveness_face_kit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  const channel = MethodChannel('flutter_face_recognition');
+  const channel = MethodChannel('liveness_face_kit');
   final plugin = const FaceRecognition();
 
   tearDown(() {

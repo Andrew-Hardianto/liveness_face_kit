@@ -1,10 +1,10 @@
 import 'dart:math' as math;
 import 'dart:typed_data';
 
-import 'flutter_face_recognition_platform_interface.dart';
+import 'liveness_face_kit_platform_interface.dart';
 import 'src/models.dart';
 
-export 'flutter_face_recognition_platform_interface.dart';
+export 'liveness_face_kit_platform_interface.dart';
 export 'src/models.dart';
 
 /// High-performance offline Face Recognition, Cosine Similarity matching,

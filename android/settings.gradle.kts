@@ -1,2 +1,2 @@
-rootProject.name = "flutter_face_recognition"
+rootProject.name = "liveness_face_kit"
 

@@ -1,10 +1,10 @@
 import 'dart:typed_data';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-import 'flutter_face_recognition_method_channel.dart';
+import 'liveness_face_kit_method_channel.dart';
 import 'src/models.dart';
 
-/// The interface that implementations of `flutter_face_recognition` must implement.
+/// The interface that implementations of `liveness_face_kit` must implement.
 abstract class FlutterFaceRecognitionPlatform extends PlatformInterface {
   /// Constructs a [FlutterFaceRecognitionPlatform].
   FlutterFaceRecognitionPlatform() : super(token: _token);

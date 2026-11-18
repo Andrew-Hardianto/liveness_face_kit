@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_face_recognition/flutter_face_recognition.dart';
+import 'package:liveness_face_kit/liveness_face_kit.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'camera_view.dart';
